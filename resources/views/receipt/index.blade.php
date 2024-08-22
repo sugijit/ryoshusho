@@ -20,6 +20,7 @@
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">コード</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">お客様</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">金額</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">作成日</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
                             </tr>
                         </thead>
@@ -29,9 +30,11 @@
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $receipt->code }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $receipt->client_company_name }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $receipt->receipt_value }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">{{ $receipt->created_at->format('Y-m-d') }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                         <a href="{{ route('receipts.show', $receipt) }}" class="text-indigo-600 hover:text-indigo-900 mr-2">詳細</a>
                                         <a href="{{ route('receipts.edit', $receipt) }}" class="text-yellow-600 hover:text-yellow-900 mr-2">編集</a>
+                                        <a href="{{ route('receipts.printpdf', $receipt) }}" class="text-yellow-600 hover:text-yellow-900 mr-2" target="_blank">印刷</a>
                                         <form action="{{ route('receipts.destroy', $receipt) }}" method="POST" class="inline" onsubmit="return confirm('本当に削除していいですか?');">
                                             @csrf
                                             @method('DELETE')

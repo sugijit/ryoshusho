@@ -21,6 +21,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/receipt', [ReceiptController::class, 'index'])->name('receipt.index');
     Route::resource('receipts', ReceiptController::class);
 
+    Route::get('/print-pdf/{id}', [ReceiptController::class, 'printPDF'])->name('receipts.printpdf');
 });
-Route::get('/print-pdf/{id}', [ReceiptController::class, 'printPDF']);
 require __DIR__.'/auth.php';

@@ -135,17 +135,25 @@ class ReceiptController extends Controller
 
 
     public function printPDF($id)
-{
-    // データベースからユーザー情報を取得
-    $receiptData = Receipt::find($id);
+    {
 
-    // PDFテンプレートを読み込む
-    $pdfContent = Storage::get('pdf/template.pdf');
+        $receiptData = Receipt::find($id);
 
-    // テンプレート上に値を配置するための処理
-    $pdf = Pdf::loadView('pdf_template', compact('receiptData'));
+        $pdf = PDF::loadView('pdf_template', compact('receiptData'))
+            ->setPaper('A4', 'portrait')
+            ->setOptions([
+                'dpi' => 300,
+                'defaultFont' => 'Noto Sans JP',
+                'isRemoteEnabled' => true,
+                'chroot' => realpath(base_path()),
+                'fontCache' => storage_path('fonts'),
+                'margin_top' => 0,
+                'margin_right' => 0,
+                'margin_bottom' => 0,
+                'margin_left' => 0,
+            ]);
 
-    // PDFを表示（ダウンロードではなく表示）
-    return $pdf->stream('document.pdf');
-}
+        return $pdf->stream('領収書_'. $id .'.pdf');
+        
+    }
 }
