@@ -2,6 +2,16 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <!-- Role -->
+        <div>
+            <x-input-label for="role" :value="__('ユーザー権限')" />
+            <select id="role" name="role" class="block mt-1 w-full rounded-md border-gray-300 mb-5" required autofocus>
+                <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>一般ユーザー</option>
+                <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>管理者</option>
+            </select>
+            <x-input-error :messages="$errors->get('role')" class="mt-2" />
+        </div>
+
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -40,9 +50,9 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+            {{-- <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
-            </a>
+            </a> --}}
 
             <x-primary-button class="ms-4">
                 {{ __('Register') }}

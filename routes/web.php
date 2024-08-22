@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReceiptController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,5 +23,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('receipts', ReceiptController::class);
 
     Route::get('/print-pdf/{id}', [ReceiptController::class, 'printPDF'])->name('receipts.printpdf');
+
+    Route::resource('users', UserController::class);
+    Route::post('users/{id}/restore', [UserController::class, 'restore'])->name('users.restore');
 });
 require __DIR__.'/auth.php';
