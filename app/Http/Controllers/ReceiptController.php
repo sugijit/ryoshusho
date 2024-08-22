@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Receipt;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
 
 class ReceiptController extends Controller
 {
@@ -130,4 +132,20 @@ class ReceiptController extends Controller
 
         return redirect()->route('receipts.index')->with('success', 'Receipt deleted successfully.');
     }
+
+
+    public function printPDF($id)
+{
+    // データベースからユーザー情報を取得
+    $receiptData = Receipt::find($id);
+
+    // PDFテンプレートを読み込む
+    $pdfContent = Storage::get('pdf/template.pdf');
+
+    // テンプレート上に値を配置するための処理
+    $pdf = Pdf::loadView('pdf_template', compact('receiptData'));
+
+    // PDFを表示（ダウンロードではなく表示）
+    return $pdf->stream('document.pdf');
+}
 }
