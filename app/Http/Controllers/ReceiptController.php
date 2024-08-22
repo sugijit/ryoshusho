@@ -15,7 +15,7 @@ class ReceiptController extends Controller
      */
     public function index()
     {
-        $receipts = Receipt::all();
+        $receipts = Receipt::orderBy('created_at', 'desc')->paginate(15); // 1ページあたり15件表示
         return view('receipt.index', compact('receipts'));
     }
 
