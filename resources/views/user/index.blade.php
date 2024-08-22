@@ -13,7 +13,7 @@
                     <div class="mb-6">
                         <label class="inline-flex items-center">
                             <input type="checkbox" id="toggleDeletedUsers" class="form-checkbox h-5 w-5 text-blue-600">
-                            <span class="ml-2 text-gray-700">削除されたユーザーを表示</span>
+                            <span class="ml-2 text-gray-700 text-sm">削除されたユーザーを表示</span>
                         </label>
                     </div>
 
