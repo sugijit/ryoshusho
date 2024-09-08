@@ -17,7 +17,12 @@ class ReceiptController extends Controller
      */
     public function index()
     {
-        $receipts = Receipt::orderBy('created_at', 'desc')->paginate(15); // 1ページあたり15件表示
+        $receipts = Receipt::withTrashed()->orderBy('created_at', 'desc')->paginate(15); // 1ページあたり15件表示
+
+
+
+        // dd($receipts);
+        // dd($receipts);
         return view('receipt.index', compact('receipts'));
     }
 
@@ -153,7 +158,6 @@ class ReceiptController extends Controller
                 'margin_left' => 0,
             ]);
 
-        return $pdf->stream('領収書_'. $id .'.pdf');
-        
+        return $pdf->stream('領収書_' . $id . '.pdf');
     }
 }
