@@ -52,7 +52,6 @@
                         class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                     <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>管理者</option>
                     <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>一般ユーザー</option>
-                    <option value="editor" {{ old('role') == 'editor' ? 'selected' : '' }}>エディター</option>
                 </select>
                 @error('role')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
