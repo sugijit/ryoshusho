@@ -16,10 +16,25 @@
                     </div>
                     {{-- <a href="{{ route('receipts.printpdf', $receipt) }}" class="text-yellow-600 hover:text-yellow-900 mr-2" target="_blank">印刷</a> --}}
                     <div class="mb-4">
-                        <h3 class="text-lg font-semibold">Receipt Code: {{ $receipt->code }}</h3>
+                        <h3 class="text-lg font-semibold">宛先: {{ $receipt->client_address }}</h3>
+                        <h3 class="text-lg font-semibold">請求額: {{ $receipt->receipt_value }}</h3>
                     </div>
                     <div class="mb-4">
                         <p><strong>Client:</strong> {{ $receipt->client_company_name }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
+                        <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
                         <p><strong>Value:</strong> {{ $receipt->receipt_value }}</p>
                         <!-- Add more receipt details here -->
                     </div>

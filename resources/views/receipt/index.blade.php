@@ -27,7 +27,7 @@
                                 @if(!$receipt->deleted_at)
                                     <tr class="odd:bg-white even:bg-gray-50 hover:bg-indigo-50 text-xs">
                                         <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->code }}</td>
-                                        <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->client_company_name }}</td>
+                                        <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->client_address }}</td>
                                         <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->receipt_value }}</td>
                                         <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->created_at->format('Y-m-d') }}</td>
                                         <td class="px-6 py-2 whitespace-nowrap text-sm font-medium">
@@ -48,7 +48,7 @@
                                 @if($receipt->deleted_at)
                                     <tr class="odd:bg-red-50 even:bg-red-100 hover:bg-red-200 text-xs">
                                         <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->code }}</td>
-                                        <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->client_company_name }}</td>
+                                        <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->client_address }}</td>
                                         <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->receipt_value }}</td>
                                         <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->created_at->format('Y-m-d') }}</td>
                                         <td class="px-6 py-2 whitespace-nowrap text-sm font-medium">

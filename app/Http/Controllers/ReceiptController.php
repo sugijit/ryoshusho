@@ -61,6 +61,10 @@ class ReceiptController extends Controller
             'promissory2_date' => 'nullable|date',
             'promissory_issuer2' => 'nullable|integer',
             'tax' => 'nullable|integer',
+            'note' => 'nullable|string|max:255',
+            'other' => 'nullable|integer',
+            'discount' => 'nullable|integer',
+            'offset' => 'nullable|integer',
             'receipt_value' => 'nullable|integer',
         ]);
 

@@ -25,6 +25,7 @@ class Receipt extends Model
         'face_value',
         'cash_value',
         'cheque_value',
+        'receipt_value',
         'promissory_value1',
         'promissory1_date',
         'promissory_issuer1',
@@ -32,7 +33,10 @@ class Receipt extends Model
         'promissory2_date',
         'promissory_issuer2',
         'tax',
-        'receipt_value',
+        'note',
+        'other',
+        'discount',
+        'offset',
     ];
 
     // 日付属性をキャスト
