@@ -17,7 +17,7 @@ class ReceiptController extends Controller
      */
     public function index()
     {
-        $receipts = Receipt::withTrashed()->orderBy('created_at', 'desc')->paginate(15); // 1ページあたり15件表示
+        $receipts = Receipt::withTrashed()->orderBy('created_at', 'desc')->paginate(20); // 1ページあたり15件表示
 
 
 

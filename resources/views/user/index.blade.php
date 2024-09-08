@@ -2,7 +2,7 @@
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div class="p-6 bg-white border-b border-gray-200 text-xs">
                     <div class="mb-6 text-right">
                         <a href="{{ route('users.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             新規作成
@@ -31,11 +31,11 @@
                             @foreach ($users as $user)
                                 @if(!$user->deleted_at)
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->id }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->name }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->email }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->created_at->format('Y-m-d') }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <td class="px-6 py-2 whitespace-nowrap">{{ $user->id }}</td>
+                                        <td class="px-6 py-2 whitespace-nowrap">{{ $user->name }}</td>
+                                        <td class="px-6 py-2 whitespace-nowrap">{{ $user->email }}</td>
+                                        <td class="px-6 py-2 whitespace-nowrap">{{ $user->created_at->format('Y-m-d') }}</td>
+                                        <td class="px-6 py-2 whitespace-nowrap text-sm font-medium">
                                             <form action="{{ route('users.edit', $user->id) }}" method="GET">
                                                 @csrf
                                                 @method('GET')
@@ -52,11 +52,11 @@
                             @foreach ($users as $user)
                                 @if($user->deleted_at)
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->id }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->name }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->email }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $user->created_at->format('Y-m-d') }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                        <td class="px-6 py-2 whitespace-nowrap">{{ $user->id }}</td>
+                                        <td class="px-6 py-2 whitespace-nowrap">{{ $user->name }}</td>
+                                        <td class="px-6 py-2 whitespace-nowrap">{{ $user->email }}</td>
+                                        <td class="px-6 py-2 whitespace-nowrap">{{ $user->created_at->format('Y-m-d') }}</td>
+                                        <td class="px-6 py-2 whitespace-nowrap text-sm font-medium">
                                             <!-- 編集フォーム -->
                                             <form action="{{ route('users.edit', $user->id) }}" method="GET">
                                                 @csrf

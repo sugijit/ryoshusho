@@ -12,10 +12,10 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('receipt.index')" :active="request()->routeIs('receipt.index')">
+                    <x-nav-link :href="route('receipt.index')" :active="request()->routeIs('receipt.index','receipts.edit','receipts.show','receipts.index')">
                         {{ __('領収書一覧') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index','users.edit','users.show')">
                         {{ __('ユーザー') }}
                     </x-nav-link>
                 </div>
