@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="mb-4 hidden">
                                     <label for="client_company_name" class="block text-gray-700 text-sm font-bold mb-2">会社名（これは隠す）</label>
-                                    <input type="client_company_name" name="client_company_name" id="client_company_name" value="null" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">null
+                                    <input type="text" name="client_company_name" id="client_company_name" value="null" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">null
                                 </div>
                             </div>
                         </div>

@@ -37,6 +37,7 @@ class Receipt extends Model
         'other',
         'discount',
         'offset',
+        'print_count',
     ];
 
     // 日付属性をキャスト

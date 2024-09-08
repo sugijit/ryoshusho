@@ -19,6 +19,7 @@
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">宛先</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">額面</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">作成日</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">印刷数</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
                             </tr>
                         </thead>
@@ -30,6 +31,7 @@
                                         <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->client_address }}</td>
                                         <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->receipt_value }}</td>
                                         <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->created_at->format('Y-m-d') }}</td>
+                                        <td class="px-6 py-2 whitespace-nowrap">{{ $receipt->print_count }}</td>
                                         <td class="px-6 py-2 whitespace-nowrap text-sm font-medium">
                                             <a href="{{ route('receipts.show', $receipt) }}" class="text-indigo-600 hover:text-indigo-900 mr-2">詳細</a>
                                             <a href="{{ route('receipts.edit', $receipt) }}" class="text-yellow-600 hover:text-yellow-900 mr-2">編集</a>

@@ -50,21 +50,21 @@ class ReceiptController extends Controller
             'code' => 'required|string|max:255',
             'client_address' => 'required|string|max:255',
             'issued_at' => 'nullable|date',
-            'client_company_name' => 'required|string|max:255',
+            'client_company_name' => 'nullable|string|max:255',
             'face_value' => 'nullable|integer',
             'cash_value' => 'nullable|integer',
             'cheque_value' => 'nullable|integer',
             'promissory_value1' => 'nullable|integer',
             'promissory1_date' => 'nullable|date',
-            'promissory_issuer1' => 'nullable|integer',
+            'promissory_issuer1' => 'nullable|string|max:255',
             'promissory_value2' => 'nullable|integer',
             'promissory2_date' => 'nullable|date',
-            'promissory_issuer2' => 'nullable|integer',
+            'promissory_issuer2' => 'nullable|string|max:255',
             'tax' => 'nullable|integer',
             'note' => 'nullable|string|max:255',
             'other' => 'nullable|integer',
             'discount' => 'nullable|integer',
-            'offset' => 'nullable|integer',
+            'offset' => 'nullable|string|max:255',
             'receipt_value' => 'nullable|integer',
         ]);
 
@@ -148,6 +148,7 @@ class ReceiptController extends Controller
 
         $receiptData = Receipt::find($id);
 
+
         $pdf = PDF::loadView('pdf_template', compact('receiptData'))
             ->setPaper('A4', 'portrait')
             ->setOptions([
@@ -161,7 +162,8 @@ class ReceiptController extends Controller
                 'margin_bottom' => 0,
                 'margin_left' => 0,
             ]);
-
+        $receiptData->print_count++;
+        $receiptData->save();
         return $pdf->stream('領収書_' . $id . '.pdf');
     }
 }

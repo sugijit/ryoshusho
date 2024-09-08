@@ -34,9 +34,10 @@
 
 
 
-                    <form action="{{ route('receipts.store') }}" method="POST" >
+                    <form action="{{ route('receipts.update', $receipt) }}" method="POST" >
                         <div class="flex flex-wrap justify-between gap-4">
                             @csrf
+                            @method('PUT')
                             <div class="w-full smw-[calc(50%-1rem)]2 md:w-[calc(20%-1rem)]">
                                 <div class="mb-4">
                                     <label for="branch" class="block text-gray-700 text-sm font-bold mb-2">営業所:</label>
@@ -112,7 +113,7 @@
                             <div class="w-full sm:w-[calc(50%-1rem)]  md:w-[calc(20%-1rem)]">
                                 <div class="mb-4">
                                     <label for="offset" class="block text-gray-700 text-sm font-bold mb-2">相殺:</label>
-                                    <input type="number" name="offset" id="offset" value="{{ $receipt->braoffsetnch }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                    <input type="number" name="offset" id="offset" value="{{ $receipt->offset }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                 </div>
                                 <div class="mb-4">
                                     <label for="discount" class="block text-gray-700 text-sm font-bold mb-2">値引:</label>
