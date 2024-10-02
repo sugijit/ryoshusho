@@ -16,10 +16,12 @@
                         :active="request()->routeIs('receipt.index','receipts.edit','receipts.show','receipts.index')">
                         {{ __('領収書一覧') }}
                     </x-nav-link>
+                    @if(Auth::user()->role == 'admin')
                     <x-nav-link :href="route('users.index')"
                         :active="request()->routeIs('users.index','users.edit','users.show')">
                         {{ __('ユーザー') }}
                     </x-nav-link>
+                    @endif
                 </div>
             </div>
 
