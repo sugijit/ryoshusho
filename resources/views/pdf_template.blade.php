@@ -314,16 +314,16 @@
                 {{ $receiptData->promissory_issuer2 }}
             </div>
             <div class="absolute offset">
-                {{ number_format($receiptData->offset) }}
+                {{ number_format($receiptData->offset) }} 円
             </div>
             <div class="absolute discount">
-                {{ number_format($receiptData->discount) }}
+                {{ number_format($receiptData->discount) }} 円
             </div>
             <div class="absolute other">
-                {{ number_format($receiptData->other) }}
+                {{ number_format($receiptData->other) }} 円
             </div>
             <div class="absolute sa">
-                {{ number_format($receiptData->receipt_value - $receiptData->cash_value - $receiptData->cheque_value - $receiptData->promissory_value1 - $receiptData->promissory_value2 - $receiptData->offset - $receiptData->discount - $receiptData->other) }}
+                {{ number_format($receiptData->receipt_value - $receiptData->cash_value - $receiptData->cheque_value - $receiptData->promissory_value1 - $receiptData->promissory_value2 - $receiptData->offset - $receiptData->discount - $receiptData->other) }} 円
             </div>
 
             {{-- 下 --}}
@@ -379,18 +379,18 @@
                 {{ $receiptData->promissory_issuer2 }}
             </div>
             <div class="absolute offset below_offset">
-                {{ number_format($receiptData->offset) }}
+                {{ number_format($receiptData->offset) }} 円
             </div>
             <div class="absolute discount below_discount">
-                {{ number_format($receiptData->discount) }}
+                {{ number_format($receiptData->discount) }} 円
             </div>
             <div class="absolute other below_other">
-                {{ number_format($receiptData->other) }}
+                {{ number_format($receiptData->other) }} 円
             </div>
             <div class="absolute sa below_sa">
                 {{ number_format($receiptData->receipt_value - $receiptData->cash_value - $receiptData->cheque_value -
                 $receiptData->promissory_value1 - $receiptData->promissory_value2 - $receiptData->offset - $receiptData->discount -
-                $receiptData->other) }}
+                $receiptData->other) }} 円
             </div>
         </div>
     </div>

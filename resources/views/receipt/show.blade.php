@@ -113,6 +113,10 @@
                                         <th class="px-4 py-2 text-left bg-gray-100 border-b">その他</th>
                                         <td class="px-4 py-2 border-b">{{ number_format($receipt->other) }}</td>
                                     </tr>
+                                    <tr>
+                                        <th class="px-4 py-2 text-left bg-gray-100 border-b">さ書く￥￥￥</th>
+                                        <td class="px-4 py-2 border-b">{{ number_format($receipt->offset) }}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

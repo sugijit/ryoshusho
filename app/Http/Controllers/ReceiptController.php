@@ -18,11 +18,6 @@ class ReceiptController extends Controller
     public function index()
     {
         $receipts = Receipt::withTrashed()->orderBy('created_at', 'desc')->paginate(20); // 1ページあたり15件表示
-
-
-
-        // dd($receipts);
-        // dd($receipts);
         return view('receipt.index', compact('receipts'));
     }
 
@@ -79,8 +74,9 @@ class ReceiptController extends Controller
      * @param  \App\Models\Receipt  $receipt
      * @return \Illuminate\Http\Response
      */
-    public function show(Receipt $receipt)
+    public function show($id)
     {
+        $receipt = Receipt::withTrashed()->findOrFail($id);
         return view('receipt.show', compact('receipt'));
     }
 
