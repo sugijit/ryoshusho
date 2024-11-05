@@ -20,5 +20,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('users', UserController::class);
     Route::post('users/{id}/restore', [UserController::class, 'restore'])->name('users.restore');
+
+    Route::get('/receipts/search', [ReceiptController::class, 'search'])->name('receipts.search');
 });
 require __DIR__.'/auth.php';

@@ -3,14 +3,27 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 !pt-4 bg-white border-b border-gray-200 text-sm">
-                    <div class="w-full mb-6 flex !justify-between">
-                        <label class="inline-flex items-center">
+                    <div class="w-full mb-6 flex flex-col sm:flex-row justify-between">
+                        <label class="inline-flex items-center mb-4 sm:mb-0">
                             <input type="checkbox" id="toggleDeletedReceipts"
                                 class="form-checkbox h-3 w-3 text-blue-600">
                             <span class="ml-2 text-gray-700 text-sm">削除された領収書を表示</span>
                         </label>
-                        <a href="{{ route('receipts.create') }}"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <form action="{{ route('receipts.search') }}" method="GET" class="flex flex-wrap items-center space-x-2">
+                            <div class="w-full sm:w-auto mb-2 sm:mb-0 sm:mr-2">
+                                <input type="text" name="code" placeholder="コード" class="w-full shadow appearance-none border rounded py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline placeholder:text-sm">
+                            </div>
+                            <div class="w-full sm:w-auto flex flex-wrap items-center mb-2 sm:mb-0 !ml-0 sm:ml-2">
+                                <span class="w-full sm:w-auto">作成日</span>
+                                <input type="date" name="date_from" class="w-full sm:w-auto shadow appearance-none border rounded py-1 sm:px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                <span class="w-full sm:w-auto sm:!mx-1">から</span>
+                                <input type="date" name="date_to" class="w-full sm:w-auto shadow appearance-none border rounded py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            </div>
+                            <div class="w-full sm:w-auto !ml-0 sm:!ml-2">
+                                <button type="submit" class="w-full sm:w-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">検索</button>
+                            </div>
+                        </form>
+                        <a href="{{ route('receipts.create') }}" class="w-full sm:w-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded mt-2 sm:mt-0">
                             新規作成
                         </a>
                     </div>

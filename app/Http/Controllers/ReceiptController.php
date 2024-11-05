@@ -170,4 +170,30 @@ class ReceiptController extends Controller
         $receiptData->save();
         return $pdf->stream('領収書_' . $id . '.pdf');
     }
+
+
+    public function search(Request $request)
+    {
+        dd($request);
+        $query = Receipt::query();
+
+        // Search by code if provided
+        if ($request->has('code') && $request->code != '') {
+            $query->where('code', 'like', '%' . $request->code . '%');
+        }
+
+        // Search by date range if provided
+        if ($request->has('date_from') && $request->date_from != '') {
+            $query->where('created_at', '>=', $request->date_from);
+        }
+        if ($request->has('date_to') && $request->date_to != '') {
+            $query->where('created_at', '<=', $request->date_to);
+        }
+
+        // Get the results
+        $receipts = $query->paginate(10);
+
+        // Return to the index view with the search results
+        return view('receipt.index', compact('receipts'));
+    }
 }
