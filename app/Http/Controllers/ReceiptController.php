@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class ReceiptController extends Controller
 {
@@ -174,7 +175,7 @@ class ReceiptController extends Controller
 
     public function search(Request $request)
     {
-        dd($request);
+        // dd($request);
         $query = Receipt::query();
 
         // Search by code if provided
@@ -184,10 +185,12 @@ class ReceiptController extends Controller
 
         // Search by date range if provided
         if ($request->has('date_from') && $request->date_from != '') {
-            $query->where('created_at', '>=', $request->date_from);
+            $dateFrom = Carbon::createFromFormat('Y-m-d', $request->date_from)->startOfDay(); // 日付のフォーマットを確認し、日の始まりに設定
+            $query->where('created_at', '>=', $dateFrom);
         }
         if ($request->has('date_to') && $request->date_to != '') {
-            $query->where('created_at', '<=', $request->date_to);
+            $dateTo = Carbon::createFromFormat('Y-m-d', $request->date_to)->endOfDay(); // 日付のフォーマットを確認し、日の終わりに設定
+            $query->where('created_at', '<=', $dateTo);
         }
 
         // Get the results

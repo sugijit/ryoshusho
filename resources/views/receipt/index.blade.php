@@ -9,7 +9,7 @@
                                 class="form-checkbox h-3 w-3 text-blue-600">
                             <span class="ml-2 text-gray-700 text-sm">削除された領収書を表示</span>
                         </label>
-                        <form action="{{ route('receipts.search') }}" method="GET" class="flex flex-wrap items-center space-x-2">
+                        <form action="{{ route('receipt.search') }}" method="GET" class="flex flex-wrap items-center space-x-2">
                             <div class="w-full sm:w-auto mb-2 sm:mb-0 sm:mr-2">
                                 <input type="text" name="code" placeholder="コード" class="w-full shadow appearance-none border rounded py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline placeholder:text-sm">
                             </div>
