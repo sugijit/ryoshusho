@@ -62,16 +62,17 @@
                             </div>
                             <div class="w-full sm:w-[calc(50%-1rem)]  md:w-[calc(20%-1rem)]">
                                 <div class="mb-4">
-                                    <label for="face_value" class="block text-gray-700 text-sm font-bold mb-2">額面:</label>
-                                    <input type="number" name="face_value" id="face_value" value="{{ $receipt->face_value }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                    <label for="receipt_value" class="block text-gray-700 text-sm font-bold mb-2">請求額:</label>
+                                    <input type="number" name="receipt_value" id="receipt_value" value="{{ $receipt->receipt_value }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                 </div>
                                 <div class="mb-4">
                                     <label for="note" class="block text-gray-700 text-sm font-bold mb-2">領収書備考:</label>
                                     <input type="text" name="note" id="note" value="{{ $receipt->note }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                 </div>
-                                <div class="mb-4">
-                                    <label for="receipt_value" class="block text-gray-700 text-sm font-bold mb-2">請求額:</label>
-                                    <input type="number" name="receipt_value" id="receipt_value" value="{{ $receipt->receipt_value }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                
+                                                                <div class="mb-4">
+                                    <label for="face_value" class="block text-gray-700 text-sm font-bold mb-2">額面:</label>
+                                    <input type="number" name="face_value" id="face_value" value="{{ $receipt->face_value }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                 </div>
                                 <div class="mb-4">
                                     <label for="cash_value" class="block text-gray-700 text-sm font-bold mb-2">現金:</label>
@@ -131,7 +132,10 @@
                         </div>
                         <!-- Add more fields as needed -->
                         <div class="flex items-center justify-between">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">更新する</button>
+                            <div>
+                                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">更新する</button>
+                                <button type="submit" name="action" value="update_and_print" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">更新して印刷</button>
+                            </div>
                             <a href="{{ route('receipts.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">戻る</a>
                         </div>
                     </form>

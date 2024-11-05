@@ -63,9 +63,13 @@ class ReceiptController extends Controller
             // 'receipt_value' => 'nullable|integer',
         ]);
 
-        Receipt::create($request->all());
+        $receipt = Receipt::create($request->all());
 
-        return redirect()->route('receipts.index')->with('success', 'Receipt created successfully.');
+        if ($request->input('action') == 'update_and_print') {
+            return redirect()->route('receipts.printpdf', $receipt->id);
+        } else {
+            return redirect()->route('receipts.index')->with('success', 'Receipt created successfully.');
+        }
     }
 
     /**
@@ -122,7 +126,11 @@ class ReceiptController extends Controller
 
         $receipt->update($request->all());
 
-        return redirect()->route('receipt.index')->with('success', 'Receipt updated successfully.');
+        if ($request->input('action') == 'update_and_print') {
+            return redirect()->route('receipts.printpdf', $receipt->id);
+        } else {
+            return redirect()->route('receipt.index')->with('success', 'Receipt updated successfully.');
+        }
     }
 
     /**

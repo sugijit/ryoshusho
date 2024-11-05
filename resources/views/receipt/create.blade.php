@@ -36,16 +36,16 @@
                             </div>
                             <div class="w-full sm:w-[calc(50%-1rem)]  md:w-[calc(20%-1rem)]">
                                 <div class="mb-4">
-                                    <label for="face_value" class="block text-gray-700 text-sm font-bold mb-2">額面: <span class="text-red-600">※</span></label>
-                                    <input type="number" name="face_value" id="face_value" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                                    <label for="receipt_value" class="block text-gray-700 text-sm font-bold mb-2">請求額:</label>
+                                    <input type="number" name="receipt_value" id="receipt_value" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                 </div>
                                 <div class="mb-4">
                                     <label for="note" class="block text-gray-700 text-sm font-bold mb-2">領収書備考:</label>
                                     <input type="text" name="note" id="note" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                 </div>
                                 <div class="mb-4">
-                                    <label for="receipt_value" class="block text-gray-700 text-sm font-bold mb-2">請求額:</label>
-                                    <input type="number" name="receipt_value" id="receipt_value" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                    <label for="face_value" class="block text-gray-700 text-sm font-bold mb-2">額面: <span class="text-red-600">※</span></label>
+                                    <input type="number" name="face_value" id="face_value" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                                 </div>
                                 <div class="mb-4">
                                     <label for="cash_value" class="block text-gray-700 text-sm font-bold mb-2">現金:</label>
@@ -105,7 +105,10 @@
                         </div>
                         <!-- Add more fields as needed -->
                         <div class="flex items-center justify-between">
-                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">新規作成</button>
+                            <div>
+                                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">新規作成</button>
+                                   <button type="submit" name="action" value="update_and_print" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">作成して印刷</button>
+                            </div>
                             <a href="{{ route('receipts.index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">キャンセル</a>
                         </div>
                     </form>
