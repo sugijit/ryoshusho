@@ -194,7 +194,7 @@ class ReceiptController extends Controller
         }
 
         // Get the results
-        $receipts = $query->paginate(10);
+        $receipts = $query->orderBy('created_at', 'desc')->paginate(100);
 
         // Return to the index view with the search results
         return view('receipt.index', compact('receipts'));

@@ -74,13 +74,13 @@
             /* left top */
             .lefttop {
                 margin-top: 1450px;   
-                margin-left: 520px;
+                margin-left: 620px;
                 line-height: 0.9rem;
             }
             /* left bottom */
             .leftbottom {
                 margin-top: 2555px;   
-                margin-left: 520px;
+                margin-left: 620px;
                 line-height: 0.9rem;
             }
 
@@ -96,7 +96,7 @@
             /* right top */
             .right-top {
                 margin-top: 1520px;
-                margin-left: 1630px;
+                right: 630px;
                 line-height: 0.9rem;
                 text-align: right;
             }
@@ -109,7 +109,7 @@
             /* right bottom */
             .right-bt {
                 margin-top: 2630px;
-                margin-left: 1630px;
+                right: 630px;
                 line-height: 0.88rem;
                 text-align: right;
             }
@@ -203,32 +203,32 @@
                         {{ number_format($receiptData->receipt_value) }} 円
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->cash_value) }} 円
+                        {{ (number_format($receiptData->cash_value) == 0) ? "-" : number_format($receiptData->cash_value)." 円" }} 
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->cheque_value) }} 円
+                        {{ (number_format($receiptData->cheque_value) == 0) ? "-" : number_format($receiptData->cheque_value)." 円" }} 
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->promissory_value1) }} 円
+                        {{ (number_format($receiptData->promissory_value1) == 0) ? "-" : number_format($receiptData->promissory_value1)." 円" }} 
                     </div>
                     <div class="">
                         {{ $receiptData->promissory_issuer1 ?? "-"}}
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->promissory_value2) }} 円
+                        {{ (number_format($receiptData->promissory_value2) == 0) ? "-" : number_format($receiptData->promissory_value2)." 円" }} 
                     </div>
 
                     <div class="">
                         {{ ($receiptData->promissory_issuer2) ?? "-"}}
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->offset) }} 円
+                        {{ (number_format($receiptData->offset) == 0) ? "-" : number_format($receiptData->offset)." 円" }} 
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->discount) }} 円
+                        {{ (number_format($receiptData->discount) == 0) ? "-" : number_format($receiptData->discount)." 円" }} 
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->other) }} 円
+                        {{ (number_format($receiptData->other) == 0) ? "-" : number_format($receiptData->other)." 円" }} 
                     </div>
                     <div class="">
                         {{ number_format($receiptData->receipt_value - $receiptData->cash_value - $receiptData->cheque_value - $receiptData->promissory_value1 - $receiptData->promissory_value2 - $receiptData->offset - $receiptData->discount - $receiptData->other) }}
@@ -252,32 +252,32 @@
                         {{ number_format($receiptData->receipt_value) }} 円
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->cash_value) }} 円
+                        {{ (number_format($receiptData->cash_value) == 0) ? "-" : number_format($receiptData->cash_value)." 円" }} 
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->cheque_value) }} 円
+                        {{ (number_format($receiptData->cheque_value) == 0) ? "-" : number_format($receiptData->cheque_value)." 円" }} 
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->promissory_value1) }} 円
+                        {{ (number_format($receiptData->promissory_value1) == 0) ? "-" : number_format($receiptData->promissory_value1)." 円" }} 
                     </div>
                     <div class="">
                         {{ $receiptData->promissory_issuer1 ?? "-"}}
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->promissory_value2) }} 円
+                        {{ (number_format($receiptData->promissory_value2) == 0) ? "-" : number_format($receiptData->promissory_value2)." 円" }} 
                     </div>
 
                     <div class="">
                         {{ ($receiptData->promissory_issuer2) ?? "-"}}
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->offset) }} 円
+                        {{ (number_format($receiptData->offset) == 0) ? "-" : number_format($receiptData->offset)." 円" }} 
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->discount) }} 円
+                        {{ (number_format($receiptData->discount) == 0) ? "-" : number_format($receiptData->discount)." 円" }} 
                     </div>
                     <div class="">
-                        {{ number_format($receiptData->other) }} 円
+                        {{ (number_format($receiptData->other) == 0) ? "-" : number_format($receiptData->other)." 円" }} 
                     </div>
                     <div class="">
                         {{ number_format($receiptData->receipt_value - $receiptData->cash_value - $receiptData->cheque_value - $receiptData->promissory_value1 - $receiptData->promissory_value2 - $receiptData->offset - $receiptData->discount - $receiptData->other) }}

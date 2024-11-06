@@ -1,4 +1,14 @@
 <x-app-layout>
+
+        <style>
+  input[type="date"]::placeholder {
+    font-size: 0.35rem; /* Tailwindのtext-xs相当 */
+  }
+  .codee::placeholder {
+    font-size: 0.65rem;
+  }
+</style>
+
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -10,18 +20,23 @@
                             <span class="ml-2 text-gray-700 text-sm">削除された領収書を表示</span>
                         </label>
                         <form action="{{ route('receipt.search') }}" method="GET" class="flex flex-wrap items-center space-x-2">
-                            <div class="w-full sm:w-auto mb-2 sm:mb-0 sm:mr-2">
-                                <input type="text" name="code" placeholder="コード" class="w-full shadow appearance-none border rounded py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline placeholder:text-sm">
+                            <div class="w-full sm:max-w-24 mb-2 sm:mb-0 sm:mr-2">
+                                <input type="text" name="code" placeholder="コード" value="{{ request('code') }}" class="w-full shadow appearance-none border rounded py-[2px] px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline placeholder:text-xs codee">
                             </div>
                             <div class="w-full sm:w-auto flex flex-wrap items-center mb-2 sm:mb-0 !ml-0 sm:ml-2">
                                 <span class="w-full sm:w-auto">作成日</span>
-                                <input type="date" name="date_from" class="w-full sm:w-auto shadow appearance-none border rounded py-1 sm:px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                <input type="date" name="date_from" value="{{ request('date_from') }}" class="w-full sm:w-auto shadow appearance-none border rounded py-1 sm:px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-xs placeholder-gray-500">
                                 <span class="w-full sm:w-auto sm:!mx-1">から</span>
-                                <input type="date" name="date_to" class="w-full sm:w-auto shadow appearance-none border rounded py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                <input type="date" name="date_to" value="{{ request('date_to') }}" class="w-full sm:w-auto shadow appearance-none border rounded py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-xs placeholder-gray-500">
                             </div>
                             <div class="w-full sm:w-auto !ml-0 sm:!ml-2">
-                                <button type="submit" class="w-full sm:w-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">検索</button>
+                                <button type="submit" class="w-full sm:w-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-[3px] px-4 rounded text-[0.8rem]">検索</button>
                             </div>
+                            @if(request('code') || request('date_from') || request('date_to'))
+                                <div class="w-full sm:w-auto !ml-0 sm:!ml-2">
+                                    <a href="{{ route('receipt.index') }}" class="w-full sm:w-auto bg-red-500 hover:bg-red-700 text-white font-bold py-[6px] px-4 rounded  text-[0.8rem]">検索解除</a>
+                                </div>
+                            @endif
                         </form>
                         <a href="{{ route('receipts.create') }}" class="w-full sm:w-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded mt-2 sm:mt-0">
                             新規作成
