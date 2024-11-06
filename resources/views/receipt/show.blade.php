@@ -115,7 +115,10 @@
                                     </tr>
                                     <tr>
                                         <th class="px-4 py-2 text-left bg-gray-100 border-b">差額</th>
-                                        <td class="px-4 py-2 border-b">{{ number_format($receipt->offset) }}</td>
+                                        <td class="px-4 py-2 border-b">{{  "¥ ".number_format($receipt->receipt_value - $receipt->cash_value -
+                                            $receipt->cheque_value -
+                                            $receipt->promissory_value1 - $receipt->promissory_value2 - $receipt->offset - $receipt->discount -
+                                            $receipt->other)  }}</td>
                                     </tr>
                                 </tbody>
                             </table>
