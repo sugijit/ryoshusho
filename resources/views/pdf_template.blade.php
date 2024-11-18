@@ -38,31 +38,32 @@
 
             /* main */
             .print_count {
-                margin-top: 100px;
+                margin-top: 15px;
                 margin-left: 1550px;
                 font-size: 1rem;
             }
 
             .issued_at_main {
-                margin-top: 180px;
+                margin-top: 105px;
                 margin-left: 1930px;
                 font-size: 0.8rem;
             }
 
             .client_address_main {
-                margin-top: 250px;
+                margin-top: 175px;
                 margin-left: 340px;
                 font-size: 1rem;
             }
 
             .face_value_main {
-                margin-top: 420px;
+                margin-top: 335px;
                 margin-left: 750px;
-                font-size: 1rem;
+                font-size: 1.3rem;
             }
 
-            .note_main {
-                margin-top: 650px;
+            /* 表示しない */
+            .note_main { 
+                margin-top: 585px;
                 margin-left: 570px;
             }
             .company_number {
@@ -73,29 +74,31 @@
 
             /* left top */
             .lefttop {
-                margin-top: 1450px;   
+                margin-top: 1375px;   
                 margin-left: 620px;
-                line-height: 0.9rem;
+                font-size: 0.9rem;
+                line-height: 1.1rem;
             }
             /* left bottom */
             .leftbottom {
-                margin-top: 2555px;   
+                margin-top: 2530px;   
                 margin-left: 620px;
-                line-height: 0.9rem;
+                font-size: 0.9rem;
+                line-height: 1.05rem;
             }
 
             .issued_at_right-top {
-                margin-top: 1445px;
+                margin-top: 1370px;
                 margin-left: 1530px;
             }
             .issued_at_right-bottom {
-                margin-top: 2560px;
+                margin-top: 2490px;
                 margin-left: 1530px;
             }
 
             /* right top */
             .right-top {
-                margin-top: 1520px;
+                margin-top: 1450px;
                 right: 630px;
                 line-height: 0.9rem;
                 text-align: right;
@@ -108,7 +111,7 @@
             }
             /* right bottom */
             .right-bt {
-                margin-top: 2630px;
+                margin-top: 2556px;
                 right: 630px;
                 line-height: 0.88rem;
                 text-align: right;
@@ -138,7 +141,7 @@
                     {{ $receiptData->client_address }}
                 </div>
                 <div class="absolute face_value_main">
-                    {{ number_format($receiptData->face_value) }} 円
+                    ¥{{ number_format($receiptData->face_value) }}※
                 </div>
                 <div class="absolute note_main">
                     {{ $receiptData->note }}
