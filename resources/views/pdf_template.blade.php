@@ -105,7 +105,7 @@
                 text-align: right;
             }
             .rr-top {
-                margin-top: 1735px;
+                margin-top: 1660px;
                 margin-left: 2050px;
                 line-height: 0.9rem;
                 text-align: right;
@@ -118,7 +118,7 @@
                 text-align: right;
             }
             .rr-bt {
-                margin-top: 2835px;
+                margin-top: 2760px;
                 margin-left: 2050px;
                 line-height: 0.9rem;
                 text-align: right;
