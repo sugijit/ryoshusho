@@ -37,6 +37,7 @@ class Receipt extends Model
         'other',
         'discount',
         'offset',
+        'taxprice',
         'print_count',
     ];
 

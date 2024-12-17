@@ -67,6 +67,12 @@
                 margin-top: 585px;
                 margin-left: 570px;
             }
+            .taxprice {
+                margin-top: 493px;
+                right: 1300px;
+                text-align: right;
+                font-size: 0.9rem;
+            }
             .company_number {
                 margin-top: 850px;
                 margin-left: 1580px;
@@ -89,12 +95,14 @@
             }
 
             .issued_at_right-top {
-                margin-top: 1370px;
+                margin-top: 1280px;
                 margin-left: 1530px;
+                line-height: 0.64rem;
             }
             .issued_at_right-bottom {
-                margin-top: 2490px;
+                margin-top: 2430px;
                 margin-left: 1530px;
+                line-height: 0.5rem;
             }
 
             /* right top */
@@ -145,6 +153,9 @@
                 <div class="absolute note_main">
                     {{ $receiptData->note }}
                 </div>
+                <div class="absolute taxprice">
+                    {{ number_format($receiptData->taxprice) }}
+                </div>
 
                 {{-- 左上 --}}
                 <div class="absolute lefttop">
@@ -190,10 +201,12 @@
                 </div>
 
                 <div class="absolute issued_at_right-top">
-                    {{ $receiptData->issued_at }}
+                    <div style="font-size: 1rem !important;">{{ $receiptData->code}}　　<span style="padding: 0 50px 0 100px;">{{ $receiptData->client_address}}</span></div><br>
+                    {{ $receiptData->issued_at}}　　<span style="padding: 0 50px 0 100px;">{{ $receiptData->branch}}</span>　　{{ $receiptData->section_staff }}
                 </div>
                 <div class="absolute issued_at_right-bottom">
-                    {{ $receiptData->issued_at }}
+                    <div style="font-size: 1rem !important;">{{ $receiptData->code}}　　<span style="padding: 0 50px 0 100px;">{{ $receiptData->client_address}}</span></div><br>
+                    {{ $receiptData->issued_at}}　　<span style="padding: 0 50px 0 100px;">{{ $receiptData->branch}}</span>　　{{ $receiptData->section_staff }}
                 </div>
 
                 <div class="absolute right-top">

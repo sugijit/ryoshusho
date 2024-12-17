@@ -86,6 +86,10 @@
                             </div>
                             <div class="w-full sm:w-[calc(50%-1rem)]  md:w-[calc(20%-1rem)]">
                                 <div class="mb-4">
+                                    <label for="taxprice" class="block text-gray-700 text-sm font-bold mb-2">消費税:</label>
+                                    <input type="number" name="taxprice" id="taxprice" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                </div>
+                                <div class="mb-4">
                                     <label for="offset" class="block text-gray-700 text-sm font-bold mb-2">相殺:</label>
                                     <input type="number" name="offset" id="offset" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                 </div>
